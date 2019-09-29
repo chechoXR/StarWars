@@ -67,14 +67,7 @@ public class people extends AppCompatActivity {
         birthYear.setText("birth");
         gender.setText("Gender");
 
-        Name.setBackgroundColor(Color.BLUE);
-        height.setBackgroundColor(Color.BLUE);
-        mass.setBackgroundColor(Color.BLUE);
-        hairColor.setBackgroundColor(Color.BLUE);
-        SkinColor.setBackgroundColor(Color.BLUE);
-        eyeColor.setBackgroundColor(Color.BLUE);
-        birthYear.setBackgroundColor(Color.BLUE);
-        gender.setBackgroundColor(Color.BLUE);
+      callWebService("");
 
 
 
@@ -84,7 +77,7 @@ public class people extends AppCompatActivity {
     public void sig(View view) {
 
 
-        if(people<86)
+        if(people<87)
             people++;
 
 
@@ -117,44 +110,58 @@ public class people extends AppCompatActivity {
 
                         JsonReader jsonReader = new JsonReader(responseBodyReader);
                         jsonReader.beginObject(); // Start processing the JSON object
+                        System.out.println("start prints ");
 
-                        String key = jsonReader.nextName(); // Fetch the next key
+                        String keyName = jsonReader.nextName(); // Fetch the next key
+                        System.out.println("Name "+keyName);
                         String valueName = jsonReader.nextString();
 
-                        key = jsonReader.nextName(); // Fetch the next key
-                        String valueHeigh = jsonReader.nextString();
 
-                        key = jsonReader.nextName(); // Fetch the next key
+
+                        String keyHeight = jsonReader.nextName(); // Fetch the next key
+                        System.out.println("Height "+keyHeight);
+                        String valueHeight = jsonReader.nextString();
+
+                        String keyMass = jsonReader.nextName(); // Fetch the next key
+                        System.out.println("Mass "+keyMass);
                         String valueMass = jsonReader.nextString();
 
-                        key = jsonReader.nextName(); // Fetch the next key
+                        String keyHair = jsonReader.nextName(); // Fetch the next key
+                        System.out.println("Hair "+keyHair);
                         String valuehair = jsonReader.nextString();
 
-                        key = jsonReader.nextName(); // Fetch the next key
+                        String keySkin = jsonReader.nextName(); // Fetch the next key
+                        System.out.println("Skin " + keySkin);
                         String valueSkin = jsonReader.nextString();
 
-                        key = jsonReader.nextName(); // Fetch the next key
+                        String keyEye = jsonReader.nextName(); // Fetch the next key
+                        System.out.println("Eye "+keyEye);
                         String valueEye = jsonReader.nextString();
 
-                        key = jsonReader.nextName(); // Fetch the next key
+                        String keyBirth = jsonReader.nextName(); // Fetch the next key
+                        System.out.println("birth "+keyBirth);
                         String valueBirth = jsonReader.nextString();
 
-                        key = jsonReader.nextName(); // Fetch the next key
+                        String keyGender = jsonReader.nextName(); // Fetch the next key
+                        System.out.println("Gender "+keyGender);
                         String valueGender = jsonReader.nextString();
 
 
-                        Log.v("INFO",valueName);
-                        Log.v("INFO",valueHeigh);
-                        Log.v("INFO",valueMass);
-                        Log.v("INFO",valuehair);
-                        Log.v("INFO",valueSkin);
-                        Log.v("INFO",valueEye);
-                        Log.v("INFO",valueBirth);
-                        Log.v("INFO",valueGender);
+                       //
+                        //Log.v("INFO",valueName);
+                       // Log.v("INFO",valueHeight);
+                        //Log.v("INFO",valueMass);
+                        //Log.v("INFO",valuehair);
+                        //Log.v("INFO",valueSkin);
+                        //Log.v("INFO",valueEye);
+                        //Log.v("INFO",valueBirth);
+                        //Log.v("INFO",valueGender);
 
 
                         nameResponse = valueName;
-                        heighResponse = valueHeigh;
+
+
+                        heighResponse = valueHeight;
                         massResponse = valueMass;
                         hairResponse = valuehair;
                         skinResponse = valueSkin;
@@ -170,6 +177,8 @@ public class people extends AppCompatActivity {
 
                             }
                         });
+
+
                         height.post(new Runnable() {
                             @Override
                             public void run() {
@@ -180,21 +189,21 @@ public class people extends AppCompatActivity {
                         mass.post(new Runnable() {
                             @Override
                             public void run() {
-                                Name.setText(massResponse);
+                                mass.setText(massResponse);
 
                             }
                         });
                         hairColor.post(new Runnable() {
                             @Override
                             public void run() {
-                                Name.setText(hairResponse);
+                                hairColor.setText(hairResponse);
 
                             }
                         });
                         SkinColor.post(new Runnable() {
                             @Override
                             public void run() {
-                                Name.setText(skinResponse);
+                                SkinColor.setText(skinResponse);
 
                             }
 
@@ -202,21 +211,21 @@ public class people extends AppCompatActivity {
                         eyeColor.post(new Runnable() {
                             @Override
                             public void run() {
-                                Name.setText(eyeResponse);
+                                eyeColor.setText(eyeResponse);
 
                             }
                         });
                         birthYear.post(new Runnable() {
                             @Override
                             public void run() {
-                                Name.setText(birthResponse);
+                                birthYear.setText(birthResponse);
 
                             }
                         });
                         gender.post(new Runnable() {
                             @Override
                             public void run() {
-                                Name.setText(genderResponse);
+                                gender.setText(genderResponse);
 
                             }
                         });
@@ -236,7 +245,7 @@ public class people extends AppCompatActivity {
         });
 
         Name.setText(nameResponse);
-        height.setText(heighResponse);
+        height.setText(String.valueOf(heighResponse));
         mass.setText(massResponse);
         hairColor.setText(hairResponse);
         SkinColor.setText(skinResponse);
@@ -244,6 +253,6 @@ public class people extends AppCompatActivity {
         birthYear.setText(birthResponse);
         gender.setText(genderResponse);
 
-
+    System.out.println(people);
     } // end callWebService()
 }

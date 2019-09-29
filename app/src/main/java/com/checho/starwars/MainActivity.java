@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void planet (View view){
-
-        setContentView(R.layout.activity_planets);
+        Intent intent = new Intent(this, planets.class);
+        startActivity(intent);
     }
 
 

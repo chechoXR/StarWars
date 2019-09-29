@@ -2,24 +2,20 @@ package com.checho.starwars;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import org.apache.http.conn.*;
+
 import javax.net.ssl.HttpsURLConnection;
-import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
 public class people extends AppCompatActivity {
 
@@ -49,13 +45,13 @@ public class people extends AppCompatActivity {
         setContentView(R.layout.activity_people);
 
         Name = findViewById(R.id.name);
-        height = findViewById(R.id.height);
-        mass = findViewById(R.id.mass);
-        hairColor = findViewById(R.id.hair_color);
-        SkinColor = findViewById(R.id.skin_color);
-        eyeColor= findViewById(R.id.eye_color);
-        birthYear = findViewById(R.id.birth_year);
-        gender = findViewById(R.id.gender);
+        height = findViewById(R.id.rotation);
+        mass = findViewById(R.id.orbital);
+        hairColor = findViewById(R.id.diameter);
+        SkinColor = findViewById(R.id.climate);
+        eyeColor= findViewById(R.id.gravity);
+        birthYear = findViewById(R.id.terrain);
+        gender = findViewById(R.id.surface);
 
 
         Name.setText("Name");
